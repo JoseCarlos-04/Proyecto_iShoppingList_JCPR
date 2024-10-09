@@ -1,4 +1,4 @@
-package com.iescarrillo.proyecto_ishoppinglist_jcpr;
+package com.iescarrillo.proyecto_ishoppinglist_jcpr.activities;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.iescarrillo.proyecto_ishoppinglist_jcpr.R;
 
 public class MainActivity extends AppCompatActivity {
 
