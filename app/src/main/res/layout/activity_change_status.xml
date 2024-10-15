@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.ChangeStatusActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,55 +15,62 @@
         tools:layout_editor_absoluteY="1dp"
         android:background="@color/background">
 
-        <ImageView
-            android:id="@+id/imgView"
+        <TextView
+            android:id="@+id/textChangeStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/logo_ishoppinglist"
-            android:layout_weight="4"/>
-
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:text="Cambiar a Pendientes"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/main_text"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerProducts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:gravity="center">
-            <Button
-                android:id="@+id/btnAddProducts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Añadir nuevos productos"
-                android:backgroundTint="@color/lime_green"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@color/main_text"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+            android:gravity="bottom|center">
 
             <Button
-                android:id="@+id/btnPendProducts"
+                android:id="@+id/btnSaveChange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Añadir productos a pendientes"
+                android:layout_weight="1"
                 android:backgroundTint="@color/lime_green"
-                android:textSize="14sp"
+                android:text="Guardar"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/main_text"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"/>
+
+            <Button
+                android:id="@+id/btnCancelChange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/lime_green"
+                android:text="Cancelar"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/main_text"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"/>
         </LinearLayout>
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
