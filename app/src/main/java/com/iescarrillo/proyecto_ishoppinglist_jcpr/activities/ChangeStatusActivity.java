@@ -15,6 +15,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.iescarrillo.proyecto_ishoppinglist_jcpr.R;
+import com.iescarrillo.proyecto_ishoppinglist_jcpr.adapters.ProductAdapter;
 import com.iescarrillo.proyecto_ishoppinglist_jcpr.database.Database;
 import com.iescarrillo.proyecto_ishoppinglist_jcpr.models.Product;
 
@@ -49,9 +50,9 @@ public class ChangeStatusActivity extends AppCompatActivity {
             }
         }
 
-        ArrayAdapter<Product> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, noPendProducts);
+        ProductAdapter adapter = new ProductAdapter(this, R.layout.spinner_product, noPendProducts);
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.spinner_product);
 
         spinnerProducts.setAdapter(adapter);
 

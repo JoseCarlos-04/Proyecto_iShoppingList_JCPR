@@ -8,6 +8,8 @@ public class Product implements Serializable {
     private String productName;
     private String infoNote;
     private boolean pendStatus;
+    private boolean lactosa;
+    private boolean gluten;
 
     public Product() {
     }
@@ -42,6 +44,22 @@ public class Product implements Serializable {
 
     public void setPendStatus(boolean pendStatus) {
         this.pendStatus = pendStatus;
+    }
+
+    public boolean isLactosa() {
+        return lactosa;
+    }
+
+    public void setLactosa(boolean lactosa) {
+        this.lactosa = lactosa;
+    }
+
+    public boolean isGluten() {
+        return gluten;
+    }
+
+    public void setGluten(boolean gluten) {
+        this.gluten = gluten;
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
+    private Spinner spinnerMain;
     private Button btnAddProducts;
     private Button btnPendProducts;
 
@@ -55,6 +57,58 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        spinnerMain = findViewById(R.id.spinnerMain);
+
+        Product p = new Product();
+
+        List<Product> spinnerListDefault = new ArrayList<>();
+
+        p.setProductName("Todos");
+        spinnerListDefault.add(p);
+        p.setProductName("Sin lactosa");
+        spinnerListDefault.add(p);
+        p.setProductName("Sin gluten");
+        spinnerListDefault.add(p);
+
+        ProductAdapter adapter2 = new ProductAdapter(MainActivity.this, R.layout.spinner_product, spinnerListDefault);
+
+        adapter2.setDropDownViewResource(R.layout.spinner_product);
+
+        spinnerMain.setAdapter(adapter2);
+
+        spinnerMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                List<Product> spinnerList = new ArrayList<>();
+
+                if(position == 0){
+                    for (Product product : Database.productList) {
+                        if (product.isPendStatus()) {
+                            pendProducts.add(product);
+                        }
+                    }
+                } else if (position == 1) {
+                    for (Product product : Database.productList) {
+                        if (product.isLactosa()) {
+                            pendProducts.add(product);
+                        }
+                    }
+                }else{
+                    for (Product product : Database.productList) {
+                        if (product.isGluten()) {
+                            pendProducts.add(product);
+                        }
+                    }
+                }
+
+                ProductAdapter adapter = new ProductAdapter(MainActivity.this, R.layout.spinner_product, spinnerList);
+
+                adapter.setDropDownViewResource(R.layout.spinner_product);
+
+                spinnerMain.setAdapter(adapter);
+            }
         });
 
         btnAddProducts = findViewById(R.id.btnAddProducts);
@@ -91,6 +145,8 @@ public class MainActivity extends AppCompatActivity {
                 intentShowProductInfoActivity.putExtra("productName", selectedProduct.getProductName());
                 intentShowProductInfoActivity.putExtra("productDescription", selectedProduct.getInfoNote());
                 intentShowProductInfoActivity.putExtra("productPend", selectedProduct.isPendStatus());
+                intentShowProductInfoActivity.putExtra("lactosa", selectedProduct.isLactosa());
+                intentShowProductInfoActivity.putExtra("gluten", selectedProduct.isGluten());
 
                 startActivity(intentShowProductInfoActivity);
             }

@@ -6,6 +6,7 @@
 
 
     <LinearLayout
+        android:id="@+id/layoutListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -28,6 +29,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Description"
+            android:textSize="18sp"
+            android:textColor="@color/main_text"
+            android:layout_marginBottom="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/textLactosa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lactosa"
+            android:textSize="18sp"
+            android:textColor="@color/main_text"
+            android:layout_marginBottom="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/textGluten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gluten"
             android:textSize="18sp"
             android:textColor="@color/main_text"
             android:layout_marginBottom="40dp"

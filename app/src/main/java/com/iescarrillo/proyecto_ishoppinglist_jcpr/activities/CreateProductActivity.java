@@ -23,6 +23,8 @@ public class CreateProductActivity extends AppCompatActivity {
     private EditText editAddProductName;
     private EditText editAddDescription;
     private Switch switchPendProduct;
+    private Switch switchAddLactosa;
+    private Switch switchAddGluten;
     private Button btnAddProduct;
     private Button btnCancelProduct;
 
@@ -40,6 +42,8 @@ public class CreateProductActivity extends AppCompatActivity {
         editAddProductName = findViewById(R.id.editAddProductName);
         editAddDescription = findViewById(R.id.editAddDescription);
         switchPendProduct = findViewById(R.id.switchPendProduct);
+        switchAddLactosa = findViewById(R.id.switchAddLactosa);
+        switchAddGluten = findViewById(R.id.switchAddGluten);
         btnAddProduct = findViewById(R.id.btnAddProduct);
 
         btnAddProduct.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +71,8 @@ public class CreateProductActivity extends AppCompatActivity {
         String productName = editAddProductName.getText().toString().trim();
         String description = editAddDescription.getText().toString().trim();
         boolean pendStatus = switchPendProduct.isChecked();
+        boolean lactosa = switchAddLactosa.isChecked();
+        boolean gluten = switchAddGluten.isChecked();
 
         if (productName.isEmpty()) {
             Toast.makeText(this, "El nombre del producto no puede estar vacío", Toast.LENGTH_SHORT).show();
@@ -88,6 +94,8 @@ public class CreateProductActivity extends AppCompatActivity {
         newProduct.setProductName(productName);
         newProduct.setInfoNote(description);
         newProduct.setPendStatus(pendStatus);
+        newProduct.setLactosa(lactosa);
+        newProduct.setGluten(gluten);
 
         Database.productList.add(newProduct);
 

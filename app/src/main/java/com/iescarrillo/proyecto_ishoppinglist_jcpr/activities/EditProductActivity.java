@@ -23,6 +23,8 @@ public class EditProductActivity extends AppCompatActivity {
     private EditText editEditProductName;
     private EditText editEditDescription;
     private Switch switchEditPendProduct;
+    private Switch switchEditLactosa;
+    private Switch switchEditGluten;
     private Button btnEditProduct;
     private Button btnCancelEditProduct;
 
@@ -40,10 +42,14 @@ public class EditProductActivity extends AppCompatActivity {
         editEditProductName = findViewById(R.id.editEditProductName);
         editEditDescription = findViewById(R.id.editEditDescription);
         switchEditPendProduct = findViewById(R.id.switchEditPendProduct);
+        switchEditLactosa = findViewById(R.id.switchEditLactosa);
+        switchEditGluten = findViewById(R.id.switchEditGluten);
 
         editEditProductName.setText(getIntent().getStringExtra("productName"));
         editEditDescription.setText(getIntent().getStringExtra("productDescription"));
         switchEditPendProduct.setChecked(getIntent().getBooleanExtra("productPend", false));
+        switchEditLactosa.setChecked(getIntent().getBooleanExtra("lactosa", false));
+        switchEditGluten.setChecked(getIntent().getBooleanExtra("gluten", false));
 
         btnEditProduct = findViewById(R.id.btnEditProduct);
 
@@ -76,6 +82,9 @@ public class EditProductActivity extends AppCompatActivity {
         String productName = editEditProductName.getText().toString().trim();
         String description = editEditDescription.getText().toString().trim();
         boolean pendStatus = switchEditPendProduct.isChecked();
+        boolean lactosa = switchEditLactosa.isChecked();
+        boolean gluten = switchEditGluten.isChecked();
+
 
         if (productName.isEmpty()) {
             Toast.makeText(this, "El nombre del producto no puede estar vacío", Toast.LENGTH_SHORT).show();
@@ -96,6 +105,8 @@ public class EditProductActivity extends AppCompatActivity {
                 p.setProductName(productName);
                 p.setInfoNote(description);
                 p.setPendStatus(pendStatus);
+                p.setLactosa(lactosa);
+                p.setGluten(gluten);
 
                 break;
             }

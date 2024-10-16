@@ -19,6 +19,8 @@ public class Database {
             product1.setProductName("Yogur Griego");
             product1.setInfoNote("Yogur cremoso, sin azúcares añadidos y con alto contenido en proteínas.");
             product1.setPendStatus(true);
+            product1.setLactosa(true);
+            product1.setGluten(false);
 
             Product product2 = new Product();
 
@@ -26,6 +28,8 @@ public class Database {
             product2.setProductName("Aceite de Oliva Virgen Extra");
             product2.setInfoNote("Aceite prensado en frío, rico en antioxidantes y grasas saludables.");
             product2.setPendStatus(true);
+            product2.setLactosa(false);
+            product2.setGluten(true);
 
             Product product3 = new Product();
 
@@ -33,6 +37,8 @@ public class Database {
             product3.setProductName("Chocolate Negro");
             product3.setInfoNote("Chocolate intenso, bajo en azúcar y con alto contenido de antioxidantes.");
             product3.setPendStatus(true);
+            product3.setLactosa(true);
+            product3.setGluten(true);
 
             Product product4 = new Product();
 
@@ -40,6 +46,8 @@ public class Database {
             product4.setProductName("Barrita Energética");
             product4.setInfoNote("Snack natural rico en fibra y energía, hecho con frutos secos y miel.");
             product4.setPendStatus(true);
+            product4.setLactosa(false);
+            product4.setGluten(false);
 
             Product product5 = new Product();
 
@@ -47,6 +55,8 @@ public class Database {
             product5.setProductName("Mango");
             product5.setInfoNote("Fruta tropical dulce y jugosa, rica en vitaminas A y C.");
             product5.setPendStatus(true);
+            product5.setLactosa(true);
+            product5.setGluten(false);
 
             productList.add(product1);
             productList.add(product2);

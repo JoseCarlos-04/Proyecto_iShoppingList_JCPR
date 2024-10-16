@@ -19,6 +19,8 @@ public class ShowProductInfoActivity extends AppCompatActivity {
     private TextView textInfoProductName;
     private TextView textInfoDescription;
     private TextView textInfoPend;
+    private TextView textInfoLactosa;
+    private TextView textInfoGluten;
     private Button btnInfoEdit;
     private Button btnInfoCancel;
 
@@ -36,15 +38,29 @@ public class ShowProductInfoActivity extends AppCompatActivity {
         textInfoProductName = findViewById(R.id.textInfoProductName);
         textInfoDescription = findViewById(R.id.textInfoDescription);
         textInfoPend = findViewById(R.id.textInfoPend);
+        textInfoLactosa = findViewById(R.id.textInfoLactosa);
+        textInfoGluten = findViewById(R.id.textInfoGluten);
 
         textInfoProductName.setText(textInfoProductName.getText() + getIntent().getStringExtra("productName"));
         textInfoDescription.setText(textInfoDescription.getText() + getIntent().getStringExtra("productDescription"));
+
         if(getIntent().getBooleanExtra("productPend", true)){
             textInfoPend.setText(textInfoPend.getText() + "Sí");
         }else{
             textInfoPend.setText(textInfoPend.getText() + "No");
         }
 
+        if(getIntent().getBooleanExtra("lactosa", true)){
+            textInfoLactosa.setText(textInfoLactosa.getText() + "Sí");
+        }else{
+            textInfoLactosa.setText(textInfoLactosa.getText() + "No");
+        }
+
+        if(getIntent().getBooleanExtra("gluten", true)){
+            textInfoGluten.setText(textInfoGluten.getText() + "Sí");
+        }else{
+            textInfoGluten.setText(textInfoGluten.getText() + "No");
+        }
 
         btnInfoEdit = findViewById(R.id.btnInfoEdit);
 
@@ -57,6 +73,8 @@ public class ShowProductInfoActivity extends AppCompatActivity {
                 intentEditProductActivity.putExtra("productName", getIntent().getStringExtra("productName"));
                 intentEditProductActivity.putExtra("productDescription", getIntent().getStringExtra("productDescription"));
                 intentEditProductActivity.putExtra("productPend", getIntent().getBooleanExtra("productPend", false));
+                intentEditProductActivity.putExtra("lactosa", getIntent().getBooleanExtra("lactosa", false));
+                intentEditProductActivity.putExtra("gluten", getIntent().getBooleanExtra("gluten", false));
 
                 startActivity(intentEditProductActivity);
             }
